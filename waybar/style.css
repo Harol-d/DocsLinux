@@ -1,0 +1,142 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: JetBrains Mono, "Font Awesome 6 Pro";
+  font-weight: bold;
+  font-size: 12px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+  color: #ebdbb2;
+}
+
+#workspaces button {
+  padding: 5px;
+  /* color: #555869; */
+  margin-right: 5px;
+  transition-duration: 0.5s;
+}
+
+#workspaces button.active {
+  color: #ebdbb2;
+}
+
+#workspaces button.focused {
+  color: #a6adc8;
+  background: #eba0ac;
+  border-radius: 10px;
+}
+
+#workspaces button.urgent {
+  color: #11111b;
+  background: #a6e3a1;
+  border-radius: 10px;
+}
+
+#workspaces button:hover {
+  background: #cdd6f4;
+  color: #11111b;
+  border-radius: 10px;
+  transition-duration: 0.5s;
+}
+
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#bluetooth,
+#custom-music,
+#network,
+#cpu,
+#memory,
+#custom-power,
+#custom-notification,
+#workspaces,
+#tray,
+#backlight  {
+  background: #282828;
+  padding: 0px 10px;
+  margin: 3px 0px;
+  margin-top: 5px;
+  opacity: 0.8;
+  /* border: 1px solid #181825; */
+}
+
+#backlight {
+  border-radius: 10px 0px 0px 10px;
+}
+
+#workspaces {
+  background: #282828;
+  border-radius: 10px;
+  margin-left: 5px;
+  padding-right: 0px;
+  padding-left: 5px;
+}
+
+#cpu {
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+#memory {
+  border-radius: 10px 0px 0px 10px;
+}
+
+#window {
+  border-radius: 10px;
+  margin-left: 60px;
+  margin-right: 5px;
+}
+
+#clock {
+  /* color: #a6adc8; */
+  border-radius: 10px 10px 10px 10px;
+  /* margin-left: 5px;
+   */
+  border-right: 0px;
+}
+
+#custom-music {
+  /* color: #a6adc8; */
+  border-radius: 10px;
+}
+
+#custom-power {
+  /* color: #a6adc8; */
+  border-radius: 10px 10px 10px 10px;
+  /* margin-left: 5px; */
+  margin-right: 5px;
+  border-right: 0px;
+}
+
+#custom-notification {
+  /* color: #a6adc8; */
+  border-radius: 10px 10px 10px 10px;
+  /*margin-left: 5px;
+  margin-right: 5px;*/
+  border-right: 0px;
+}
+
+#network {
+  /* color: #a6adc8; */
+  border-radius: 10px 0px 0px 10px; 
+}
+
+#pulseaudio {
+  /* color: #a6adc8; */
+  border-radius: 0px 10px 10px 0px;
+  margin-right: 5px;
+}
+
+#battery {
+  /* color: #a6adc8; */
+  border-radius: 0px 10px 10px 0px;
+  margin-right: 10px;
+}
+.modules-center{
+  margin-right: 200px;
+  /* transform: translateX(-50%); */
+}

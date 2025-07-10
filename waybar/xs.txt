@@ -1,0 +1,230 @@
+{
+    
+    // Choose the order of the modules
+    "modules-left": ["custom/launcher","hyprland/workspaces"],
+    "modules-center": ["cava","custom/music"],
+    "modules-right": ["pulseaudio", "backlight", "battery", "clock", "tray", "custom/lock", "custom/power"],
+    "hyprland/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": true,
+         "active-only": false,
+        //  "persistent-workspaces": {
+        //     "1": [],
+        //     "2": [],
+        //     "3": [],
+        //     "4": [],
+        //     "5": [],
+        //     "6": []
+        // },
+         "format": " {icon} ",
+         "format-icons": {
+             "default": "",
+             "active": ""
+         }
+     },
+      "custom/launcher": {
+      "tooltip": false,
+      "format": "<span font='14'>󰣇</span>"
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "custom/music": {
+        "format": "|  {}",
+        "escape": true,
+        "interval": 5,
+        "tooltip": false,
+        "exec": "playerctl metadata --format='{{ title }}'",
+        "on-click": "playerctl play-pause",
+        "max-length": 20
+    },
+    "clock": {
+        "timezone": "Colombia/Bogota",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": " {:%d/%m/%Y}",
+        "format": " {:%H:%M}"
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "",
+        "format-plugged": "",
+        "format-alt": "{icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+//   "network" :{
+    // "interface": "wlan0",
+    // "format": "{ifname}",
+    // "format-wifi": "{essid} ({signalStrength}%) ",
+    // "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    // "format-disconnected": "", //An empty format will hide the module.
+    // "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    // "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    // "tooltip-format-ethernet": "{ifname} ",
+    // "tooltip-format-disconnected": "Disconnected",
+    // "max-length": 50
+//   },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", "", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/lock": {
+        "tooltip": false,
+        "on-click": "hyprlock",//"sh -c '(sleep 0.5s; swaylock --grace 0)' & disown",
+        "format": ""
+    },
+    "custom/power": { 
+        "tooltip": false,
+        "on-click": "wlogout",//"wlogout &",
+        "format": "<span font='14'>󰐥</span>"
+    },
+    "cava": {
+        "framerate": 30,
+        "autosens": 0,
+        "sensitivity": 2,
+        "bars": 10,
+        "lower_cutoff_freq": 100,
+        "higher_cutoff_freq": 4000,
+        "method": "pipewire",
+        "source": "auto",
+        "stereo": true,
+        "reverse": true,
+        "bar_delimiter": 32,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.85,
+        "input_delay": 1,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ]
+  }
+}
+style
+@import "colors.css";
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: JetBrains Mono, "Font Awesome 6 Pro";
+  font-weight: bold;
+  font-size: 14px;
+  min-height: 0;
+  border-radius: 0.5rem;
+}
+
+#waybar {
+  background: rgba(21, 18, 27, 0);
+  /* margin-top: 30px;  */
+}
+
+#workspaces {
+  
+  margin: 5px;
+  background-color: @base;
+  /* opacity: 0.8; */
+}
+
+#workspaces button {
+  color: @text;
+  /* border-radius: 1rem; */
+  padding: 0.4rem;
+  /* transition-duration: 0.5s; */
+}
+
+#workspaces button.active {
+  color: @blue;
+  /* transition-duration: 0.5s; */
+  /* border-radius: 1rem; */
+}
+#workspaces button:hover {
+  color: @sky;
+  /* border-radius: 0.5rem; */
+  background: @surface1;
+  border: 1px solid @base;
+}
+
+#tray,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#custom-lock,
+#custom-power,
+#custom-launcher,
+{
+  background-color: @base;
+  padding: 0.5rem 0.5rem;
+  margin: 5px 0;
+  
+}
+
+#clock {
+  color: @blue;
+  border-radius: 0px 0.5rem 0.5rem 0px;
+  margin-right: 1rem;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#backlight {
+  color: @teal;
+}
+
+#backlight, #battery {
+    border-radius: 0;
+}
+
+#pulseaudio {
+  color: @peach;
+  border-radius: 0.5rem 0px 0px 0.5rem;
+  margin-left: 1rem;
+}
+
+
+#custom-lock {
+    border-radius: 0.5rem 0px 0px 0.5rem;
+    color: @lavender;
+}
+
+#custom-power {
+    margin-right: 1rem;
+    border-radius: 0px 0.5rem 0.5rem 0px;
+    color: @red;
+}
+#custom-launcher {
+  color: @blue;
+  /* border-radius: 0.5rem; */
+  margin-right: 1rem;
+}
+#tray {
+  color: @text;
+  margin-right: 1rem;
+  border-radius: 1rem;
+}
+.modules-center{
+  color: @sky;
+  /* border-radius: 0.5rem; */
+}
+
