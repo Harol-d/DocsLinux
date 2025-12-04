@@ -1,3 +1,3 @@
 My Setup | Arch Linux
 
-![image](/Descargas/setup.jpeg)
+![image](./assets/setup.jpeg)
